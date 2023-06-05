@@ -70,7 +70,7 @@ class NotificationPage : Fragment() {
                     binding.username.text = dataSnapshot.value.toString()
                     val layout = rootView.findViewById<LinearLayout>(R.id.container)
 
-                    requestRef.child(binding.username.text.toString()).addValueEventListener(object : ValueEventListener {
+                    requestRef.child(binding.username.text.toString()).addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(dataSnapshot: DataSnapshot) {
                             for (childSnapshot in dataSnapshot.children) {
                                 val senderName = childSnapshot.child("senderName").value as String
